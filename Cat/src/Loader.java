@@ -8,17 +8,14 @@ public class Loader
 
     public static void main(String[] args)
     {
-        Cat tigra = new Cat(3000);
-        System.out.println(tigra.getWeight());
-        System.out.println(Cat.getCount());
+        Cat doris = new Cat();
+        Cat vasya = new Cat();
 
-        System.out.println();
+        doris.setColor(ColorType.RED);
 
-        System.out.println("Получаем котенка с весом " + getKitten().getWeight());
-        System.out.println(Cat.getCount());
+        vasya.setColor(ColorType.WHITE);
 
-        System.out.println();
-        System.out.println("Получаем котенка с весом " + getKitten().getWeight());
-        System.out.println(Cat.getCount());
+        System.out.println(doris.getColor());
+        System.out.println(vasya.getColor());
     }
 }

@@ -10,6 +10,7 @@ public class Cat
     private double qualityDrunk;
     public static int count;
     public boolean isAlive;
+    ColorType color;
 
     public static final int EYES_COUNT = 2;
 
@@ -30,6 +31,16 @@ public class Cat
     {
         this();
         this.weight = weight;
+    }
+
+    public void setColor(ColorType color)
+    {
+        this.color = color;
+    }
+
+    public ColorType getColor()
+    {
+        return color;
     }
 
     public void meow()
