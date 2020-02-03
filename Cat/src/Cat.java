@@ -4,12 +4,14 @@ public class Cat
     private double originWeight;
     private double weight;
 
-    private double minWeight;
-    private double maxWeight;
+    private final double minWeight;
+    private final double maxWeight;
     private double qualityEaten;
     private double qualityDrunk;
     public static int count;
     public boolean isAlive;
+
+    public static final int EYES_COUNT = 2;
 
     public Cat()
     {
