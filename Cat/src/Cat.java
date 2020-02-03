@@ -6,6 +6,8 @@ public class Cat
 
     private double minWeight;
     private double maxWeight;
+    private double qualityEaten;
+    private double qualityDrunk;
 
     public Cat()
     {
@@ -13,6 +15,8 @@ public class Cat
         originWeight = weight;
         minWeight = 1000.0;
         maxWeight = 9000.0;
+        qualityEaten = 0.0;
+        qualityDrunk = 0.0;
 
     }
 
@@ -25,11 +29,19 @@ public class Cat
     public void feed(Double amount)
     {
         weight = weight + amount;
+        qualityEaten = qualityEaten + amount;
     }
 
     public void drink(Double amount)
     {
         weight = weight + amount;
+        qualityDrunk = qualityDrunk + amount;
+    }
+
+    public void pee()
+    {
+        weight = weight - weight * 0.02;
+        System.out.println("pee. Weight was reduced");
     }
 
     public Double getWeight()
@@ -51,5 +63,12 @@ public class Cat
         else {
             return "Playing";
         }
+    }
+
+    public void getTotalEaten()
+    {
+        System.out.println("\nTotal was eaten: " + qualityEaten);
+        System.out.println("Total was drunk: " + qualityDrunk);
+        System.out.println("Total amount of food eaten " + (qualityEaten + qualityDrunk)+"\n");
     }
 }
