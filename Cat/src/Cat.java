@@ -26,6 +26,12 @@ public class Cat
 
     }
 
+    public Cat(double weight)
+    {
+        this();
+        this.weight = weight;
+    }
+
     public void meow()
     {
         weight = weight - 1;
