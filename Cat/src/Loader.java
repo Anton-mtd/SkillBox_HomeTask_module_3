@@ -1,21 +1,23 @@
 
 public class Loader
 {
-    private static Cat getKitten()
+    private static Cat getKitten(String name, double weight)
     {
-        return new Cat(1100);
+        return new Cat(name,weight);
     }
 
     public static void main(String[] args)
     {
-        Cat doris = new Cat();
-        Cat vasya = new Cat();
+        Cat filip = new Cat("Filip",4000);
+        System.out.println(filip.getWeight());
+        System.out.println(filip.getName());
+        System.out.println(filip.getStatus());
 
-        doris.setColor(ColorType.RED);
+        System.out.println();
 
-        vasya.setColor(ColorType.WHITE);
-
-        System.out.println(doris.getColor());
-        System.out.println(vasya.getColor());
+        Cat murka = new Cat("Filip",4000);
+        System.out.println(murka.getWeight());
+        System.out.println(murka.getName());
+        System.out.println(murka.getStatus());
     }
 }

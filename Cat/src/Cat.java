@@ -11,6 +11,7 @@ public class Cat
     public static int count;
     public boolean isAlive;
     ColorType color;
+    private String name;
 
     public static final int EYES_COUNT = 2;
 
@@ -27,10 +28,16 @@ public class Cat
 
     }
 
-    public Cat(double weight)
+    public Cat(String name, double weight)
     {
         this();
+        this.name = name;
         this.weight = weight;
+    }
+
+    public String getName()
+    {
+        return name+" ";
     }
 
     public void setColor(ColorType color)
