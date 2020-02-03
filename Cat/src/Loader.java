@@ -3,40 +3,23 @@ public class Loader
 {
     public static void main(String[] args)
     {
-        Cat tigra = new Cat();
-        Cat murka = new Cat();
+        Cat vasya = new Cat();
+        Cat doris = new Cat();
 
-        System.out.println(tigra.getWeight()+"\n");
+        System.out.println(Cat.getCount());
 
-        tigra.feed(150.0);
-        tigra.drink(50.0);
+        while (vasya.isAlive)
+        {
+            vasya.feed(150.0);
+        }
+        System.out.println(vasya.getWeight() + " Vasya " + vasya.getStatus());
+        System.out.println(Cat.getCount());
 
-        System.out.println(tigra.getWeight());
-
-        tigra.getTotalEaten();
-
-        System.out.print("Tigra, ");
-        tigra.pee();
-
-        System.out.println(tigra.getWeight());
-
-        tigra.getTotalEaten();
-//______________________________________________________________
-
-        System.out.println(murka.getWeight()+"\n");
-
-        murka.feed(100.0);
-        murka.drink(50.0);
-
-        System.out.println(murka.getWeight());
-
-        murka.getTotalEaten();
-
-        System.out.print("Murka, ");
-        murka.pee();
-
-        System.out.println(murka.getWeight());
-
-        murka.getTotalEaten();
+        while (doris.isAlive)
+        {
+            doris.pee();
+        }
+        System.out.println(doris.getWeight() + " Doris " + doris.getStatus());
+        System.out.println(Cat.getCount());
     }
 }

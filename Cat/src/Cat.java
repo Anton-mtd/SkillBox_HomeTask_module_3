@@ -8,6 +8,8 @@ public class Cat
     private double maxWeight;
     private double qualityEaten;
     private double qualityDrunk;
+    public static int count;
+    public boolean isAlive;
 
     public Cat()
     {
@@ -17,6 +19,8 @@ public class Cat
         maxWeight = 9000.0;
         qualityEaten = 0.0;
         qualityDrunk = 0.0;
+        count = ++count;
+        isAlive = true;
 
     }
 
@@ -28,20 +32,44 @@ public class Cat
 
     public void feed(Double amount)
     {
-        weight = weight + amount;
-        qualityEaten = qualityEaten + amount;
+        if (isAlive)
+        {
+            weight = weight + amount;
+            qualityEaten = qualityEaten + amount;
+            checkIsAlive();
+        }
+        else
+        {
+            System.out.println(" cat is gone :(");
+        }
     }
 
     public void drink(Double amount)
     {
-        weight = weight + amount;
-        qualityDrunk = qualityDrunk + amount;
+        if (isAlive)
+        {
+            weight = weight + amount;
+            qualityDrunk = qualityDrunk + amount;
+            checkIsAlive();
+        }
+        else
+        {
+            System.out.println(" cat is gone :(");
+        }
     }
 
     public void pee()
     {
-        weight = weight - weight * 0.02;
-        System.out.println("pee. Weight was reduced");
+        if (isAlive)
+        {
+            weight = weight - weight * 0.02;
+            System.out.println("pee. Weight was reduced");
+            checkIsAlive();
+        }
+        else
+        {
+            System.out.println(" cat is gone :(");
+        }
     }
 
     public Double getWeight()
@@ -70,5 +98,21 @@ public class Cat
         System.out.println("\nTotal was eaten: " + qualityEaten);
         System.out.println("Total was drunk: " + qualityDrunk);
         System.out.println("Total amount of food eaten " + (qualityEaten + qualityDrunk)+"\n");
+    }
+
+    public static int getCount()
+    {
+        System.out.print("Общее колиство кошек: ");
+        return count;
+    }
+
+    public void checkIsAlive ()
+    {
+        if (weight < minWeight || weight > maxWeight & isAlive)
+        {
+            isAlive = false;
+            count = count - 1;
+            System.out.println(" cat is gone :(");
+        }
     }
 }
