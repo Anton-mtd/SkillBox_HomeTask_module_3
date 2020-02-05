@@ -7,7 +7,6 @@ public class Cat
     private final double minWeight;
     private final double maxWeight;
     private double qualityEaten;
-    private double qualityDrunk;
     public static int count;
     public boolean isAlive;
     ColorType color;
@@ -22,10 +21,8 @@ public class Cat
         minWeight = 1000.0;
         maxWeight = 9000.0;
         qualityEaten = 0.0;
-        qualityDrunk = 0.0;
-        count = ++count;
+        count++;
         isAlive = true;
-
     }
 
     public Cat(String name, double weight)
@@ -33,7 +30,17 @@ public class Cat
         this();
         this.name = name;
         this.weight = weight;
+        this.originWeight = weight;
     }
+
+    public Cat deepCopy (Cat other)
+    {
+        this.weight = other.weight;
+        this.name = other.name;
+        count++;
+        return other;
+    }
+
 
     public String getName()
     {
@@ -52,8 +59,17 @@ public class Cat
 
     public void meow()
     {
-        weight = weight - 1;
-        System.out.println("Meow");
+        if (isAlive)
+        {
+            weight = weight - 1;
+            System.out.println("Meow");
+            checkIsAlive();
+        }
+        else
+        {
+            System.out.println(" cat is gone :(");
+        }
+
     }
 
     public void feed(Double amount)
@@ -75,7 +91,7 @@ public class Cat
         if (isAlive)
         {
             weight = weight + amount;
-            qualityDrunk = qualityDrunk + amount;
+            qualityEaten = qualityEaten + amount;
             checkIsAlive();
         }
         else
@@ -119,11 +135,9 @@ public class Cat
         }
     }
 
-    public void getTotalEaten()
+    public double getTotalEaten()
     {
-        System.out.println("\nTotal was eaten: " + qualityEaten);
-        System.out.println("Total was drunk: " + qualityDrunk);
-        System.out.println("Total amount of food eaten " + (qualityEaten + qualityDrunk)+"\n");
+        return qualityEaten;
     }
 
     public static int getCount()
