@@ -1,7 +1,7 @@
 
 public class Cat
 {
-    private double originWeight;
+    public double originWeight;
     private double weight;
 
     private final double minWeight;
@@ -33,12 +33,13 @@ public class Cat
         this.originWeight = weight;
     }
 
-    public Cat deepCopy (Cat other)
+    public Cat deepCopy ()
     {
-        this.weight = other.weight;
-        this.name = other.name;
-        count++;
-        return other;
+        Cat cat = new Cat();
+        cat.name = this.name;
+        cat.weight = this.weight;
+        cat.originWeight = this.originWeight;
+        return cat;
     }
 
 

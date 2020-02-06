@@ -56,8 +56,9 @@ public class Loader
 
 
         Cat originCat = new Cat();
-        System.out.println(originCat.getName() + originCat.getWeight());
-        Cat copyCat = originCat.deepCopy(originCat);
-        System.out.println(copyCat.getName() + copyCat.getWeight());
+        System.out.println(originCat.getName() + originCat.getWeight() + originCat.originWeight);
+
+        Cat copyCat = originCat.deepCopy();
+        System.out.println(copyCat.getName() + copyCat.getWeight() + copyCat.originWeight);
     }
 }
